@@ -1,4 +1,5 @@
 let qtdDeCartas = prompt('Com quantas cartas deseja jogar?');
+let numDeJogadas = 0;
 let numDeClicks = 0;
 let versoPrimeiraCarta = "";
 let versoSegundaCarta = "";
@@ -43,7 +44,6 @@ function unflip (){
     versoSegundaCarta.classList.remove("verso-ativa");
     frenteSegundaCarta.classList.remove("carta2");
     frenteSegundaCarta.classList.remove("frente-desativa");
-    console.log('esta função está rodando');
 }
 
 //virando a carta quando ela é clicada
@@ -63,10 +63,11 @@ function flip (cartaSelecionada){
     console.log(versoSegundaCarta);
     console.log(frentePrimeiraCarta);
     console.log(frenteSegundaCarta);
+    numDeJogadas++;
     numDeClicks++;
     console.log(numDeClicks);
     //se já tiver virado duas carta a contagem de clicks recomeça
-    if(numDeClicks === 2){
+    if(numDeClicks%2 === 0){
         numDeClicks = 0;
         if(versoPrimeiraCarta.innerHTML === versoSegundaCarta.innerHTML){
             versoPrimeiraCarta.classList.remove("carta1");
