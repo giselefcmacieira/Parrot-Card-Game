@@ -52,7 +52,7 @@ body {
 .verso-ativa{
     transform: rotateY(0deg);
 }
-.frente-ativa{
+.frente-desativa{
     transform: rotateY(-180deg);
 }
 .img-verso{
