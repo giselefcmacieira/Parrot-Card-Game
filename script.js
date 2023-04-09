@@ -31,7 +31,7 @@ if (qtdDeCartas>=4 && qtdDeCartas<=14 && qtdDeCartas%2 == 0){
 //adicionando as cartas no HTML na quantidade certa e com as imagens de verso emaralhadas
 while (contador < qtdDeCartas){
     let elemento = document.querySelector(".conteudo");
-    elemento.innerHTML = elemento.innerHTML + `<div class="carta${numDaCarta[contador]}"><div onclick= "flip (this)" class="carta errada"><div class="frente face"><img class="img-verso" src="./Imagens/back.png"/></div><div class="verso face"><img class="img-verso" src="./Imagens/${cartas[contador]}"/></div></div></div>`
+    elemento.innerHTML = elemento.innerHTML + `<div data-test="card" onclick= "flip (this)" class="carta errada"><div class="frente face"><img data-test="face-down-image" class="img-verso" src="./Imagens/back.png"/></div><div class="verso face"><img data-test="face-up-image" class="img-verso" src="./Imagens/${cartas[contador]}"/></div></div>`
     contador = contador + 1;
 }
 //função para desvirar a carta
