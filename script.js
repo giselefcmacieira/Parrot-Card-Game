@@ -66,8 +66,14 @@ function terminouOJogo(){
         clearInterval(idcronometro);
         alert(`Você ganhou em ${numDeJogadas} jogadas! A duração do jogo foi de ${tempo} segundos!`);
         reinicioDaPartida = prompt(`Gostaria de reiniciar a partida?`);
-        if(reinicioDaPartida === "sim"){
+        if(true){
+            while (reinicioDaPartida !== "sim" && reinicioDaPartida !== "não"){
+            reinicioDaPartida = prompt(`Gostaria de reiniciar a partida?`);
+            console.log('while rodando');
+            }
+            if(reinicioDaPartida == "sim"){
             window.location.reload(true);
+            }
         }
     }
 }
