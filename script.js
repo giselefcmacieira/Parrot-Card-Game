@@ -12,6 +12,7 @@ let contador = 0;
 let i = 0;
 let cartas = [];
 let paresDeCartas = ["bobrossparrot.gif","bobrossparrot.gif","explodyparrot.gif","explodyparrot.gif","fiestaparrot.gif","fiestaparrot.gif","metalparrot.gif","metalparrot.gif","revertitparrot.gif","revertitparrot.gif","tripletsparrot.gif","tripletsparrot.gif","unicornparrot.gif","unicornparrot.gif"]
+let reinicioDaPartida = "";
 //Perguntando a quantidade de cartas novamente caso o valor inserido anteriormente não seja par ou maior que 4 ou menor que 16
 while (qtdDeCartas<4 || qtdDeCartas>14 || qtdDeCartas%2 !== 0){
     qtdDeCartas = prompt('Com quantas cartas deseja jogar?');
@@ -64,6 +65,10 @@ function terminouOJogo(){
     if(cartaEmJogo === null){
         clearInterval(idcronometro);
         alert(`Você ganhou em ${numDeJogadas} jogadas! A duração do jogo foi de ${tempo} segundos!`);
+        reinicioDaPartida = prompt(`Gostaria de reiniciar a partida?`);
+        if(reinicioDaPartida === "sim"){
+            window.location.reload(true);
+        }
     }
 }
 
