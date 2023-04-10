@@ -1,11 +1,13 @@
 let qtdDeCartas = prompt('Com quantas cartas deseja jogar?');
+let tempo = 0;
+let idcronometro = "";
 let numDeJogadas = 0;
 let numDeClicks = 0;
 let versoPrimeiraCarta = "";
 let versoSegundaCarta = "";
 let frentePrimeiraCarta = "";
 let frenteSegundaCarta = "";
-let numDaCarta = [1,2,3,4,5,6,7,,9,10,11,12,13,14]
+let numDaCarta = [1,2];
 let contador = 0;
 let i = 0;
 let cartas = [];
@@ -14,12 +16,18 @@ let paresDeCartas = ["bobrossparrot.gif","bobrossparrot.gif","explodyparrot.gif"
 while (qtdDeCartas<4 || qtdDeCartas>14 || qtdDeCartas%2 !== 0){
     qtdDeCartas = prompt('Com quantas cartas deseja jogar?');
 }
+function cronometro(){
+    const divcronometro = document.querySelector('.cronometro');
+    divcronometro.innerHTML = tempo;
+    tempo++;
+}
 //funçao usada para embaralhar as cartas
 function comparador() { 
 	return Math.random() - 0.5; 
 }
 //adicionando a quantidade certa de cartas na array que será embaralhada (quando a quantidade de cartas selecionada é valida)
 if (qtdDeCartas>=4 && qtdDeCartas<=14 && qtdDeCartas%2 == 0){
+    idcronometro = setInterval(cronometro, 1000);
     while(i<qtdDeCartas){
         cartas.push(paresDeCartas[i]);
         i++;
@@ -54,7 +62,8 @@ function terminouOJogo(){
     const cartaEmJogo = document.querySelector(".carta.errada");
     console.log(cartaEmJogo);
     if(cartaEmJogo === null){
-        alert(`Você ganhou em ${numDeJogadas} jogadas!`)
+        clearInterval(idcronometro);
+        alert(`Você ganhou em ${numDeJogadas} jogadas! A duração do jogo foi de ${tempo} segundos!`);
     }
 }
 
